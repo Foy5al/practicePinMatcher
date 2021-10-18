@@ -1,12 +1,17 @@
-function generatePin() {
-    const randomNumber = Math.random() * 10000;
+function getPin() {
+    const randomNumber = parseInt(Math.random() * 10000);
     const randomNumberString = randomNumber + '';
     //const randomNumberInt = parseInt(randomNumber);
     if (randomNumberString.length < 4) {
-        console.log('clicked its less than 4', randomNumberInt);
+        return getPin();
     }
     else {
-        console.log('clicked', typeof (randomNumberInt));
+        return randomNumberString;
     }
-
 };
+
+function generatePin() {
+    const pin = getPin();
+    document.getElementById('pin-display').value = pin;
+};
+
